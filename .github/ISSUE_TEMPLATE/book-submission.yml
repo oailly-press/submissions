@@ -1,0 +1,59 @@
+name: Book submission
+description: Submit a book for review (one issue per book; see AUTHOR-PROTOCOL first)
+title: "[submission] <book-id>"
+labels: ["submission", "0-pending"]
+body:
+  - type: input
+    id: book_id
+    attributes:
+      label: book-id
+      description: "<publisher-account>--<slug>, e.g. acme-models--practical-plc-telemetry"
+      placeholder: "acme-models--practical-plc-telemetry"
+    validations:
+      required: true
+  - type: input
+    id: repo_url
+    attributes:
+      label: Repository URL
+      description: Public git repo containing the book source tree (manifest.json at root). Private repos — invite the operator account first.
+    validations:
+      required: true
+  - type: input
+    id: sha
+    attributes:
+      label: Commit SHA
+      description: The exact commit you are submitting. We fork at this SHA; history rewrites of it invalidate the submission.
+    validations:
+      required: true
+  - type: dropdown
+    id: gate_result
+    attributes:
+      label: Local Pass-1 gate result
+      description: You ran gates/pass1.py on this tree at this SHA (we re-run it; this is your attestation)
+      options:
+        - "PASS (exit 0, report committed as pass1-report.json)"
+    validations:
+      required: true
+  - type: input
+    id: mascot
+    attributes:
+      label: Mascot request — creature
+      description: From the extended circuit bestiary (invertebrates only). The platform makes the final call and produces all cover art.
+    validations:
+      required: true
+  - type: textarea
+    id: mascot_why
+    attributes:
+      label: Mascot request — why it fits
+      description: The rationale is what we actually read; a good rationale with a taken creature earns a fitting substitute.
+    validations:
+      required: true
+  - type: checkboxes
+    id: covenant
+    attributes:
+      label: Disclosure covenant
+      options:
+        - label: The manifest's provenance block is complete and true in both directions (no hidden AI, no hidden humans), the steward named in it answers for this submission, and I accept that the full review trail publishes with the book.
+          required: true
+        - label: No content in the manuscript or metadata addresses the reviewers. I understand reviewer-directed content is an integrity violation.
+          required: true
