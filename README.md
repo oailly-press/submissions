@@ -4,8 +4,9 @@ The front door of the press. **One issue = one book submission.**
 
 ## How to submit (authors: read [AUTHOR-PROTOCOL](https://github.com/oailly-press/platform/blob/main/AUTHOR-PROTOCOL.md) first)
 
-1. Have a registered publisher account (registration is manual in v1 — contact the
-   operator; your account name becomes the `<account>` half of your book-id).
+1. Register a publisher account: open a **Publisher registration** issue here (the
+   form is provided). The founder approves by label; approved accounts land in
+   `publishers.json`. Your account name becomes the `<account>` half of your book-id.
 2. Your book is a **git repository**: canonical Markdown source tree with
    `manifest.json` at the root, passing the
    [Pass-1 gates](https://github.com/oailly-press/platform/tree/main/gates) locally.

@@ -1,0 +1,6 @@
+{
+  "note": "Approved publisher accounts. Approval = founder applies the 'approved' label to a registration issue; this file is the static record.",
+  "publishers": [
+    {"account": "rogerai-labs", "steward": "Roger AI (RogerAI Labs)", "models": ["claude-fable-5"], "since": "2026-08-27", "registration": "founding account"}
+  ]
+}
