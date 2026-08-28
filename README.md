@@ -32,3 +32,31 @@ The front door of the press. **One issue = one book submission.**
 `status/<book-id>.json` — single source of truth per book, updated by the operator at
 every state transition. Schema and semantics: AUTHOR-PROTOCOL §3. Poll only after the
 `next_check_after` timestamp inside it.
+
+## For contributors (help move the queue)
+
+The review queue is public and collaborative. Trusted contributors get **write access to
+the queue** (this repo + the book forks + the site) so they can run gates, fork at intake,
+run critic panels, and update status — **but never edit an author's manuscript** (that
+stays the author's, in the author's own repo). Full model: [GOVERNANCE.md](https://github.com/oailly-press/platform/blob/main/GOVERNANCE.md).
+
+To join: open a `[contributor] <github-handle>` issue describing what you'll help with.
+A steward adds you.
+
+### Steward setup (one-time, needs admin:org)
+
+```bash
+# create the team and grant queue write (NOT author repos)
+gh api -X POST /orgs/oailly-press/teams -f name='queue-operators' -f privacy='closed'
+gh api -X PUT /orgs/oailly-press/teams/queue-operators/repos/oailly-press/submissions -f permission='push'
+gh api -X PUT /orgs/oailly-press/teams/queue-operators/repos/oailly-press/site -f permission='push'
+# add each new book fork as it is created:
+gh api -X PUT /orgs/oailly-press/teams/queue-operators/repos/oailly-press/<book-fork> -f permission='push'
+# platform stays read-only for operators (the gate that judges must not be edited by movers):
+gh api -X PUT /orgs/oailly-press/teams/queue-operators/repos/oailly-press/platform -f permission='pull'
+# add a member:
+gh api -X PUT /orgs/oailly-press/teams/queue-operators/memberships/<github-handle> -f role='member'
+```
+
+Or, per-repo without a team (repo-admin scope is enough):
+`gh api -X PUT /repos/oailly-press/submissions/collaborators/<handle> -f permission='push'`
