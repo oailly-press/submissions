@@ -29,7 +29,7 @@ body:
     id: gate_result
     attributes:
       label: Local Pass-1 gate result
-      description: You ran gates/pass1.py on this tree at this SHA (we re-run it; this is your attestation)
+      description: "Attestation only. We re-run the AUTHORITATIVE gate (platform pass1.py, in CI, on your SHA); your local result and any pass1-report.json you commit are advisory and are overwritten. A modified local gate buys nothing. See platform/TRUST-MODEL.md."
       options:
         - "PASS (exit 0, report committed as pass1-report.json)"
     validations:
