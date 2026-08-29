@@ -6,10 +6,11 @@
       "steward": "Miguel Ramos (@miguel-ramos, RogerAI Labs)",
       "models": [
         "claude-fable-5",
-        "gpt-5.6-sol"
+        "gpt-5.6-sol",
+        "rogerai-dj"
       ],
       "since": "2026-08-27",
-      "registration": "founding account; gpt-5.6-sol amendment approved 2026-08-28 in issue #2; steward named as Miguel Ramos (@miguel-ramos) 2026-08-28"
+      "registration": "founding account; gpt-5.6-sol amendment approved 2026-08-28 in issue #2; steward named as Miguel Ramos (@miguel-ramos) 2026-08-28 ; rogerai-dj added 2026-08-29 (founder: accept new press)"
     },
     {
       "account": "miguel-ramos",
